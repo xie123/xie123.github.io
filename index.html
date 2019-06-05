@@ -67,30 +67,59 @@
   
     <article id="post-leanback_BaseGridView" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/05/leanback_BaseGridView/" class="article-date">
-  <time datetime="2019-06-05T06:34:49.564Z" itemprop="datePublished">2019-06-05</time>
+    <a href="/2019/06/03/leanback_BaseGridView/" class="article-date">
+  <time datetime="2019-06-03T00:00:00.000Z" itemprop="datePublished">2019-06-03</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/03/leanback_BaseGridView/">LeanBack</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#LeanBack</p>
-<blockquote>
-<p>讲讲BaseGridView 中的属性和方法。<br>注意:都是在引入 palaemon 的基础上讲解的</p>
+        <h1 id="recyclerView"><a href="#recyclerView" class="headerlink" title="recyclerView"></a>recyclerView</h1><ul>
+<li>setHasFixedSize <a href="https://blog.csdn.net/wsdaijianjun/article/details/74735039" target="_blank" rel="noopener">优化的理由</a></li>
+</ul>
+<h1 id="LeanBack"><a href="#LeanBack" class="headerlink" title="LeanBack"></a>LeanBack</h1><blockquote>
+<p>讲讲BaseGridView 中的属性和方法。<br>注意:都是在引入 palaemon 的基础上讲解的<br><a href="https://www.jianshu.com/p/52f67a414a10" target="_blank" rel="noopener">结合项目和这篇文章补齐的</a></p>
 </blockquote>
 <ul>
-<li>setVerticalSpacing<br>这个方法在 item 之间添加间距。注意的是 参数是不需要进行适配的<br><img src="https://i.imgur.com/LXHNh7P.png" alt=""></li>
+<li><p>HorizontalGridView/VerticalGridView<br>注意的是 Horizontal 最好宽度固定，Vertical 最好高度固定</p>
+</li>
+<li><p>setVerticalSpacing / setHorizontalSpacing<br>这个方法是在每个 item 之间添加间距。注意的是 参数是不需要进行适配的</p>
+</li>
+<li><p>focusOutFront、focusOutEnd<br><img src="/.io//1.png" alt="你想输入的替代文字"><br>像上面云视听极光所示，如果标题栏使用 HorizontalGridView 实现，内容区域使用 Fragment 里放的 VerticalGridView 实现，可能出现标题栏和内容区焦点切换不成功的问题，比如说，焦点不能从内容区切到标题栏这样的情况。这时使用 focusOutFront 和 focusOutEnd 属性能够解决问题，解决不同容器里焦点切换不成功的问题。使用方式如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app:focusOutEnd=&quot;true&quot;</span><br><span class="line">app:focusOutFront=&quot;true&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>setNumRows<br>用于设置行数</p>
+</li>
+<li><p>setRowHeight<br>是用来设置 HorizontalGridView 的 Item 的高度，而不是用来设置 HorizontalGridView 的高度</p>
+</li>
+<li><p>setSelectedPosition、setSelectedPositionSmooth</p>
+</li>
+</ul>
+<ul>
+<li>duplicateParentState<br>子控件跟随父控件的状态走。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xie123.github.io/2019/06/05/leanback_BaseGridView/" data-id="cjwiuya0y0005kwcvktd5lgke" class="article-share-link">Share</a>
+      <a data-url="https://xie123.github.io/2019/06/03/leanback_BaseGridView/" data-id="cjwiyxb530005escv6ckn9694" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeanBack-BaseGridView/">LeanBack BaseGridView</a></li></ul>
+
     </footer>
   </div>
   
@@ -128,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xie123.github.io/2019/02/13/sss/" data-id="cjwiuya110006kwcv6s83zcwm" class="article-share-link">Share</a>
+      <a data-url="https://xie123.github.io/2019/02/13/sss/" data-id="cjwiyxb590006escvo4sf8xrr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/glide-脱壳/">glide 脱壳</a></li></ul>
@@ -175,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xie123.github.io/2019/02/12/hello-world/" data-id="cjwiuya0v0004kwcvwoensqjc" class="article-share-link">Share</a>
+      <a data-url="https://xie123.github.io/2019/02/12/hello-world/" data-id="cjwiyxb4z0004escvsu309sur" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +227,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide-脱壳/">glide 脱壳</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeanBack-BaseGridView/">LeanBack BaseGridView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide-脱壳/">glide 脱壳</a></li></ul>
     </div>
   </div>
 
@@ -208,7 +237,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/glide-脱壳/" style="font-size: 10px;">glide 脱壳</a>
+      <a href="/tags/LeanBack-BaseGridView/" style="font-size: 10px;">LeanBack BaseGridView</a> <a href="/tags/glide-脱壳/" style="font-size: 10px;">glide 脱壳</a>
     </div>
   </div>
 
@@ -230,7 +259,7 @@
       <ul>
         
           <li>
-            <a href="/2019/06/05/leanback_BaseGridView/">(no title)</a>
+            <a href="/2019/06/03/leanback_BaseGridView/">LeanBack</a>
           </li>
         
           <li>
