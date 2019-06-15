@@ -5,22 +5,20 @@
   
 
   
-  <title>LeanBack | xie123</title>
+  <title>性能优化 | xie123</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="recyclerView setHasFixedSize 优化的理由  LeanBack 讲讲BaseGridView 中的属性和方法。注意:都是在引入 palaemon 的基础上讲解的结合项目和这篇文章补齐的   HorizontalGridView/VerticalGridView注意的是 Horizontal 最好宽度固定，Vertical 最好高度固定  setVerticalSpacin">
-<meta name="keywords" content="LeanBack BaseGridView">
+  <meta name="description" content="性能优化 启用严格模式 MultiDex 优化 Application 初始化优化 init   BlockCanary 轻松找出Android App界面卡顿元凶   帧动画优化">
+<meta name="keywords" content="性能优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeanBack">
-<meta property="og:url" content="https://xie123.github.io/2019/06/03/leanback_BaseGridView/index.html">
+<meta property="og:title" content="性能优化">
+<meta property="og:url" content="https://xie123.github.io/2019/06/11/performance_optimization/index.html">
 <meta property="og:site_name" content="xie123">
-<meta property="og:description" content="recyclerView setHasFixedSize 优化的理由  LeanBack 讲讲BaseGridView 中的属性和方法。注意:都是在引入 palaemon 的基础上讲解的结合项目和这篇文章补齐的   HorizontalGridView/VerticalGridView注意的是 Horizontal 最好宽度固定，Vertical 最好高度固定  setVerticalSpacin">
+<meta property="og:description" content="性能优化 启用严格模式 MultiDex 优化 Application 初始化优化 init   BlockCanary 轻松找出Android App界面卡顿元凶   帧动画优化">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://xie123.github.io/.io//1.png">
-<meta property="og:updated_time" content="2019-06-05T08:13:34.723Z">
+<meta property="og:updated_time" content="2019-06-10T12:07:33.734Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeanBack">
-<meta name="twitter:description" content="recyclerView setHasFixedSize 优化的理由  LeanBack 讲讲BaseGridView 中的属性和方法。注意:都是在引入 palaemon 的基础上讲解的结合项目和这篇文章补齐的   HorizontalGridView/VerticalGridView注意的是 Horizontal 最好宽度固定，Vertical 最好高度固定  setVerticalSpacin">
-<meta name="twitter:image" content="https://xie123.github.io/.io//1.png">
+<meta name="twitter:title" content="性能优化">
+<meta name="twitter:description" content="性能优化 启用严格模式 MultiDex 优化 Application 初始化优化 init   BlockCanary 轻松找出Android App界面卡顿元凶   帧动画优化">
   
     <link rel="alternate" href="/atom.xml" title="xie123" type="application/atom+xml">
   
@@ -67,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-leanback_BaseGridView" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-performance_optimization" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/03/leanback_BaseGridView/" class="article-date">
-  <time datetime="2019-06-03T00:00:00.000Z" itemprop="datePublished">2019-06-03</time>
+    <a href="/2019/06/11/performance_optimization/" class="article-date">
+  <time datetime="2019-06-10T16:08:29.000Z" itemprop="datePublished">2019-06-10</time>
 </a>
     
   </div>
@@ -81,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LeanBack
+      性能优化
     </h1>
   
 
@@ -89,38 +87,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="recyclerView"><a href="#recyclerView" class="headerlink" title="recyclerView"></a>recyclerView</h1><ul>
-<li>setHasFixedSize <a href="https://blog.csdn.net/wsdaijianjun/article/details/74735039" target="_blank" rel="noopener">优化的理由</a></li>
-</ul>
-<h1 id="LeanBack"><a href="#LeanBack" class="headerlink" title="LeanBack"></a>LeanBack</h1><blockquote>
-<p>讲讲BaseGridView 中的属性和方法。<br>注意:都是在引入 palaemon 的基础上讲解的<br><a href="https://www.jianshu.com/p/52f67a414a10" target="_blank" rel="noopener">结合项目和这篇文章补齐的</a></p>
-</blockquote>
-<ul>
-<li><p>HorizontalGridView/VerticalGridView<br>注意的是 Horizontal 最好宽度固定，Vertical 最好高度固定</p>
+        <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><ol>
+<li>启用严格模式</li>
+<li>MultiDex 优化</li>
+<li>Application 初始化优化<ol>
+<li><a href="https://github.com/markzhai/init" target="_blank" rel="noopener">init</a></li>
+</ol>
 </li>
-<li><p>setVerticalSpacing / setHorizontalSpacing<br>这个方法是在每个 item 之间添加间距。注意的是 参数是不需要进行适配的</p>
+<li>BlockCanary<ol>
+<li><a href="http://blog.zhaiyifan.cn/2016/01/16/BlockCanaryTransparentPerformanceMonitor/" target="_blank" rel="noopener">轻松找出Android App界面卡顿元凶</a></li>
+</ol>
 </li>
-<li><p>focusOutFront、focusOutEnd<br><img src="/.io//1.png" alt="你想输入的替代文字"><br>像上面云视听极光所示，如果标题栏使用 HorizontalGridView 实现，内容区域使用 Fragment 里放的 VerticalGridView 实现，可能出现标题栏和内容区焦点切换不成功的问题，比如说，焦点不能从内容区切到标题栏这样的情况。这时使用 focusOutFront 和 focusOutEnd 属性能够解决问题，解决不同容器里焦点切换不成功的问题。使用方式如下所示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app:focusOutEnd=&quot;true&quot;</span><br><span class="line">app:focusOutFront=&quot;true&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>setNumRows<br>用于设置行数</p>
-</li>
-<li><p>setRowHeight<br>是用来设置 HorizontalGridView 的 Item 的高度，而不是用来设置 HorizontalGridView 的高度</p>
-</li>
-<li><p>setSelectedPosition、setSelectedPositionSmooth</p>
-</li>
-</ul>
-<ul>
-<li>duplicateParentState<br>子控件跟随父控件的状态走。</li>
-</ul>
+<li>帧动画优化</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xie123.github.io/2019/06/03/leanback_BaseGridView/" data-id="cjwx4ykji00072gcvn7xxvptb" class="article-share-link">Share</a>
+      <a data-url="https://xie123.github.io/2019/06/11/performance_optimization/" data-id="cjwx4ykj100022gcv01sn1tpu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeanBack-BaseGridView/">LeanBack BaseGridView</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
 
     </footer>
   </div>
@@ -128,19 +115,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/06/10/detection_website/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          检测网站
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/02/13/sss/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/06/10/detection_website/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">浏览文章记录</div>
+      <div class="article-nav-title">检测网站</div>
     </a>
   
 </nav>
