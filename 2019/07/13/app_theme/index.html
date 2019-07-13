@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>xie123</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="res 分类Android Studio分类整理res/Layout中的布局文件(创建子目录)  这样可以在一个项目或者module里区分各个项目所需要的内容  尝试在layout下新建子文件夹。必须在子文件夹下在建立 layout 并且 切换到Project Files 才能更好的查看到文件信息   hook 主题Hook源码实现阿里无闪烁换肤 1.代理LayoutInflater 代理Layo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xie123">
+<meta property="og:url" content="https://xie123.github.io/2019/07/13/app_theme/index.html">
+<meta property="og:site_name" content="xie123">
+<meta property="og:description" content="res 分类Android Studio分类整理res/Layout中的布局文件(创建子目录)  这样可以在一个项目或者module里区分各个项目所需要的内容  尝试在layout下新建子文件夹。必须在子文件夹下在建立 layout 并且 切换到Project Files 才能更好的查看到文件信息   hook 主题Hook源码实现阿里无闪烁换肤 1.代理LayoutInflater 代理Layo">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-12T09:53:44.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xie123">
+<meta name="twitter:description" content="res 分类Android Studio分类整理res/Layout中的布局文件(创建子目录)  这样可以在一个项目或者module里区分各个项目所需要的内容  尝试在layout下新建子文件夹。必须在子文件夹下在建立 layout 并且 切换到Project Files 才能更好的查看到文件信息   hook 主题Hook源码实现阿里无闪烁换肤 1.代理LayoutInflater 代理Layo">
+  
+    <link rel="alternate" href="/atom.xml" title="xie123" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">xie123</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xie123.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-app_theme" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/13/app_theme/" class="article-date">
+  <time datetime="2019-07-13T05:04:37.276Z" itemprop="datePublished">2019-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="res-分类"><a href="#res-分类" class="headerlink" title="res 分类"></a>res 分类</h4><p><a href="https://blog.csdn.net/u011156012/article/details/50575117&quot;" target="_blank" rel="noopener">Android Studio分类整理res/Layout中的布局文件(创建子目录)</a></p>
+<blockquote>
+<p>这样可以在一个项目或者module里区分各个项目所需要的内容</p>
+<ol>
+<li>尝试在layout下新建子文件夹。必须在子文件夹下在建立 layout 并且 切换到Project Files 才能更好的查看到文件信息</li>
+</ol>
+</blockquote>
+<h3 id="hook-主题"><a href="#hook-主题" class="headerlink" title="hook 主题"></a>hook 主题</h3><p><a href="https://juejin.im/post/5d25f09bf265da1bb565217f" title="Hook源码实现阿里无闪烁换肤" target="_blank" rel="noopener">Hook源码实现阿里无闪烁换肤</a></p>
+<h1 id="1-代理LayoutInflater"><a href="#1-代理LayoutInflater" class="headerlink" title="1.代理LayoutInflater"></a>1.代理LayoutInflater</h1><blockquote>
+<p>代理LayoutInflater创建View的过程来解析属性id，再从其他资源包中找出相同id的资源来做皮肤切换；不过所有View都被存在框架内，可能会导致内存泄露；并且不支持自定义属性，可扩展性比较差；</p>
+</blockquote>
+<h3 id="1-1-Android-Skin"><a href="#1-1-Android-Skin" class="headerlink" title="1.1 Android-Skin"></a>1.1 Android-Skin</h3><p><a href="https://github.com/MeetYouDevs/Android-Skin" target="_blank" rel="noopener">Android-Skin：极简单的android换肤框架，无缝支持第三方控件，一行代码即可换肤，集成成本极低， 提供丰富的API支持拓展，对业务代码几乎无入侵。</a></p>
+<h3 id="1-2-SKinLoader-同出一体"><a href="#1-2-SKinLoader-同出一体" class="headerlink" title="1.2 SKinLoader 同出一体"></a>1.2 SKinLoader 同出一体</h3><p><a href="https://github.com/qqliu10u/QSkinLoader" target="_blank" rel="noopener">QSkinLoader</a><br><a href="https://github.com/WindySha/XSkinLoader" target="_blank" rel="noopener">XSkinLoader</a></p>
+<h3 id="1-3-Android-Skin-Loader"><a href="#1-3-Android-Skin-Loader" class="headerlink" title="1.3 Android-Skin-Loader"></a>1.3 Android-Skin-Loader</h3><p><a href="https://blog.csdn.net/stven_king/article/details/78648095" target="_blank" rel="noopener">Android换肤原理和Android-Skin-Loader框架解析</a><br><a href="https://github.com/fengjundev/Android-Skin-Loader?tdsourcetag=s_pcqq_aiomsg" target="_blank" rel="noopener">Android-Skin-Loader</a><br><a href="https://github.com/burgessjp/ThemeSkinning?tdsourcetag=s_pcqq_aiomsg" target="_blank" rel="noopener">ThemeSkinning</a></p>
+<h3 id="1-4-Android-skin-support"><a href="#1-4-Android-skin-support" class="headerlink" title="1.4 Android-skin-support"></a>1.4 Android-skin-support</h3><p><a href="https://github.com/ximsfei/Android-skin-support" target="_blank" rel="noopener">Android-skin-support</a></p>
+<p> 相应主题介绍<br><a href="https://blog.csdn.net/u013478336/article/details/53083054" target="_blank" rel="noopener">Android换肤功能实现与换肤框架QSkinLoader使用方式介绍</a></p>
+<p><a href="https://windysha.github.io/2018/02/10/%E4%BE%B5%E5%85%A5%E6%80%A7%E4%BD%8E%E6%89%A9%E5%B1%95%E6%80%A7%E5%BC%BA%E7%9A%84Android%E6%8D%A2%E8%82%A4%E6%A1%86%E6%9E%B6XSkinLoader%E7%9A%84%E7%94%A8%E6%B3%95%E5%8F%8A%E5%8E%9F%E7%90%86/" target="_blank" rel="noopener">侵入性低扩展性强的Android换肤框架XSkinLoader的用法及原理</a></p>
+<h1 id="2-占用View的Tag标签来指定资源id"><a href="#2-占用View的Tag标签来指定资源id" class="headerlink" title="2.占用View的Tag标签来指定资源id"></a>2.占用View的Tag标签来指定资源id</h1><blockquote>
+<p>Injor需要占用View的Tag标签来指定资源id，标签内容格式比较复杂（类似：skin:textColor:color_text|Background:color_bg）；但支持自定义View的属性，可扩展性比较好；</p>
+</blockquote>
+<h3 id="2-1-injor"><a href="#2-1-injor" class="headerlink" title="2.1 injor"></a>2.1 injor</h3><p><a href="https://github.com/hackware1993/injor" target="_blank" rel="noopener">injor —— 一个高度可扩展的，非侵入式的，简单的，轻量的，强悍的，“原生”的Android皮肤框架（Skin Framework），仅35K，无第三方依赖，支持内置皮肤和插件皮肤（本质是apk，但无需安装）</a></p>
+<h3 id="2-2-同应用间-MultipleTheme"><a href="#2-2-同应用间-MultipleTheme" class="headerlink" title="2.2 同应用间 MultipleTheme"></a>2.2 同应用间 MultipleTheme</h3><p><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="noopener">Android换肤／夜间模式的Android框架，配合theme和换肤控件框架可以做到无缝切换换肤</a></p>
+<h1 id="3-换肤"><a href="#3-换肤" class="headerlink" title="3. 换肤"></a>3. 换肤</h1><p><a href="https://blog.csdn.net/u013478336/article/details/78993969" target="_blank" rel="noopener">如何在一个成熟的应用内换肤？</a></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>RecyclerView</p>
+<blockquote>
+<p>由于RecyclerView滑动时，其子元素出现的过程不一定会伴有onBindViewHolder回调，导致我们有时出现两种皮肤并存的问题。因此，使用RecyclerView时换肤一定要清除RecyclerView的缓存。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xie123.github.io/2019/07/13/app_theme/" data-id="cjy12gjsk0003wkcv0ezix2rx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/11/performance_optimization/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">性能优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeanBack-BaseGridView/">LeanBack BaseGridView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/glide-脱壳/">glide 脱壳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/检测网站/">检测网站</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/LeanBack-BaseGridView/" style="font-size: 10px;">LeanBack BaseGridView</a> <a href="/tags/glide-脱壳/" style="font-size: 10px;">glide 脱壳</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/检测网站/" style="font-size: 10px;">检测网站</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/13/app_theme/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/11/performance_optimization/">性能优化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/10/detection_website/">检测网站</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/03/leanback_BaseGridView/">LeanBack</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/13/sss/">浏览文章记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 [object Object]<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
